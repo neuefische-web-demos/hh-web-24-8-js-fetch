@@ -19,4 +19,20 @@ function renderJoke(joke) {
   jokeSection.append(newJoke);
 }
 
-// renderJoke("Thanks for explaining the word “many” to me, it means a lot.");
+//renderJoke("Thanks for explaining the word “many” to me, it means a lot.");
+
+async function getJoke() {
+  const response = await fetch(
+    "https://example-apis.vercel.app/api/bad-jokes/random"
+  );
+  console.log(response);
+  const data = await response.json();
+  console.log(data);
+  renderJoke(data.joke);
+  //...
+}
+console.log("A");
+getJoke();
+console.log("B");
+
+//...
